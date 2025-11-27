@@ -1,12 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { ClerkProvider } from '@clerk/clerk-react';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
+import App from './App.tsx';
+import './index.css';
 import Workspace from './workspace/index.tsx';
-import Project from './workspace/project/index.tsx';
-import { ClerkProvider } from '@clerk/clerk-react'
+import Outline from './workspace/project/outline/index.tsx';
 
 const router = createBrowserRouter([
   {
@@ -18,8 +18,13 @@ const router = createBrowserRouter([
     element: <Workspace />,
     children: [
     {
-      path: "project/:projectId",
-      element: <Project/>
+      path: "project/:projectId/outline",
+      element: <Outline/>
+    }
+    ,
+    {
+      path: "project/outline",
+      element: <Outline />
     }
     ],
   },

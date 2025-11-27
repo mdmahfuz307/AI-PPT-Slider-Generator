@@ -8,6 +8,7 @@ import { firebaseDb } from '../../config/FirebaseConfig';
 import type { UserDetail } from '../../context/UserDetailContext';
 import { UserDetailContext } from '../../context/UserDetailContext';
 import PromtBox from '@/components/custom/PromtBox';
+import MyProjects from '@/components/custom/MyProjects';
 
 function Workspace() {
 
@@ -59,7 +60,10 @@ function Workspace() {
   return (
     <div>
       <Header/>
-      {location.pathname === '/workspace' && <PromtBox/>}
+      {location.pathname === '/workspace' && <div>
+        <PromtBox/>
+        <MyProjects/>
+        </div>}
       <Outlet/>
     </div>
   )
